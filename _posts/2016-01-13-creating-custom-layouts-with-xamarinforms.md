@@ -1,8 +1,9 @@
 ---
 layout: post
 title: "Custom layouts with Xamarin.Forms, Part 1"
-description: "Simple custom layouts"
+subtitle: "Simple custom layouts"
 category: Xamarin.Forms
+header-img: img/xamarin-platform.jpg
 tags: [Layout]
 ---
 {% include JB/setup %}

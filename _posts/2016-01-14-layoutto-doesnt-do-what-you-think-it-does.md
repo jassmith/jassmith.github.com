@@ -1,8 +1,9 @@
 ---
 layout: post
 title: "LayoutTo doesn't do what you think it does"
-description: ""
+subtitle: "But you can still do what you want!"
 category: Xamarin.Forms
+header-img: img/xamarin-platform.jpg
 tags: [Layout, Animation]
 ---
 {% include JB/setup %}
