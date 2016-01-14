@@ -48,7 +48,7 @@ protected override void LayoutChildren (double x, double y, double width, double
 }
 {% endhighlight %}
 
-Directly calling into `child.Layout` does not respect `child.VerticalOptions` or `child.HorizontalOptions`, so instead of using `child.Layout` it is prefered to use a call to `Layout.LayoutChildIntoBoundingRegion`. Further our layout does not currently attempt to measure the children at all to figure out the size they wish to be, instead everything is just hardcoded to 100x100. Children can be measued by using the `GetSizeRequest` method, which will return both the desired size and the minimum size the child desires. The updated method looks like:
+Directly calling into `child.Layout` does not respect `child.VerticalOptions` or `child.HorizontalOptions`, so instead of using `child.Layout` it is prefered to use a call to `Layout.LayoutChildIntoBoundingRegion`. Further our layout does not currently attempt to measure the children at all to figure out the size they wish to be, instead everything is just hardcoded to 100x100. Children can be measured by using the `GetSizeRequest` method, which will return both the desired size and the minimum size the child desires. The updated method looks like:
 
 {% highlight C# %}
 protected override void LayoutChildren (double x, double y, double width, double height)
@@ -67,7 +67,7 @@ protected override void LayoutChildren (double x, double y, double width, double
 }
 {% endhighlight %}
 
-This method will automatically be called whenever the layout needs to be recomputed. If your layout consists of hardcoded or fixed size elements, hard code their sizes into this algorithm instead of measuring. `GetSizeRequest` calls are some of the most expensive calls that can be made, and are not predictable in their runtime as the subtree may be arbitrarly complex. Fixing their size is a great way to get a performance boost if dynamic sizing is not required.
+This method will automatically be called whenever the layout needs to be recomputed. If your layout consists of hardcoded or fixed size elements, hard code their sizes into this algorithm instead of measuring. `GetSizeRequest` calls are some of the most expensive calls that can be made, and are not predictable in their runtime as the subtree may be arbitrary complex. Fixing their size is a great way to get a performance boost if dynamic sizing is not required.
 
 ### OnSizeRequest ###
 
@@ -100,4 +100,4 @@ protected override SizeRequest OnSizeRequest (double widthConstraint, double hei
 
 By computing both a request size and a minimum size the layout is able to take part in overflow negotiation. This will allow for things like label truncation as needed or scrollable regions to be compressed and made to scroll.
 
-That's it! Thats a basic Xamarin.Forms custom layout. Of course this example is very simple and intended to provide you with the neccessary context for the rest of the series.
+That's it! That's a basic Xamarin.Forms custom layout. Of course this example is very simple and intended to provide you with the necessary context for the rest of the series.
