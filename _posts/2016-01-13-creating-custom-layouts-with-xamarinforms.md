@@ -3,6 +3,7 @@ layout: post
 title: "Custom layouts with Xamarin.Forms, Part 1"
 subtitle: "Simple custom layouts"
 category: Xamarin.Forms
+author: Jason Smith
 header-img: img/xamarin-platform.jpg
 tags: [Layout]
 ---

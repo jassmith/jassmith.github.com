@@ -3,6 +3,7 @@ layout: post
 title: "LayoutTo doesn't do what you think it does"
 subtitle: "But you can still do what you want!"
 category: Xamarin.Forms
+author: Jason Smith
 header-img: img/xamarin-platform.jpg
 tags: [Layout, Animation]
 ---
