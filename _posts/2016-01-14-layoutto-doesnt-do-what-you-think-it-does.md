@@ -2,7 +2,7 @@
 layout: post
 title: "LayoutTo doesn't do what you think it does"
 description: ""
-category: Layout
+category: Xamarin.Forms
 tags: [Layout, Animation]
 ---
 {% include JB/setup %}
