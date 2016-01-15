@@ -11,7 +11,7 @@ tags: [Layout, Animation]
 
 Okay I need to cop up to something here. I screwed up `View.LayoutTo` hard. Unfortunately it is too late to fix for 2.0 without a big API break, so I am writing this page to explain what it does, what it is useful for, what you probably want instead, and how to get the effect you wanted from `LayoutTo`. I would not be surprised if we fix this in some fashion for 3.0.
 
-First what it is meant for. LayoutTo is actually used cause a child to be laid out in a series of animated steps to a new location. This sounds useful but there are a couple important things to note.
+First what it is meant for. LayoutTo is actually used cause a child to be layed out in a series of animated steps to a new location. This sounds useful but there are a couple important things to note.
 
 - It was only intended to be used by `Xamarin.Forms.Layout` subclasses, not externally.
 - It is stupidly exposed in the same way the other animation methods are.
