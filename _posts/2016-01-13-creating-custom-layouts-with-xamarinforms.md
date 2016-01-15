@@ -12,7 +12,7 @@ tags: [Layout]
 Writing custom layouts in Xamarin.Forms gives you control over exactly where and how your controls appear on screen. Further in complicated layouts this can result in improved overall performance as the absolute minimum amount of work required to produce the layout is performed. This series assumes you are familiar with Xamarin.Forms. We will be covering the following topics:
 
 - Simple custom Layout's
-- Layout performance optimizations
+- [Layout performance optimizations]({% post_url 2016-01-14-custom-layouts-with-xamarinforms-part-2 %})
 - Animations inside of layouts
 - Transitions between layout states
 

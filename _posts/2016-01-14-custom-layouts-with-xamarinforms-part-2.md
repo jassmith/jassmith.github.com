@@ -9,6 +9,8 @@ tags: [Layout Performance]
 ---
 {% include JB/setup %}
 
+[Part 1]({% post_url 2016-01-13-creating-custom-layouts-with-xamarinforms %})
+
 When it comes to Layout performance Xamarin.Forms contains a very young layout system. I will be the first to admit that it is not the most blazing fast layout system in the world, however I like to think it's gotten to the point now where it is in the ballpark of acceptable. We are continuing to iterate on it and improve it with every cycle, and there is a lot of internal work going on to make sure that happens.
 
 I want to digress slightly into what makes Layouts slow. In general layout performance issues arise when unbounded measure invalidation occurs. There are two key phases to this invalidation, and stopping the propagation earlier in the cycle results in better performance.
@@ -31,19 +33,19 @@ During the invalidation phase the each child informs the parent that it's measur
 </Grid>
 {% endhighlight %}
 
-No matter what the label measured size comes out to be, the Grid will always size it to be 50x50dp, so there is no need to propagate the event further up the hierarchy. More complex examples include using Star columns/rows when the Grid has a fixed size, or using ContentView's with WidthRequest and HeightRequest set on the child. However if you are not careful when crafting a layout, it is easy to allow these events to propagate all the way to the top of the hierarchy, which is bad seriously juju. I will be giving a talk on this very topic at [Xamarin Evolve 2016](https://evolve.xamarin.com/).
+No matter what the label measured size comes out to be, the Grid will always size it to be 50x50dp, so there is no need to propagate the event further up the hierarchy. More complex examples include using Star columns/rows when the Grid has a fixed size, or using ContentView's with WidthRequest and HeightRequest set on the child. However if you are not careful when crafting a Xamarin.Forms app, it is possible to allow these events to propagate to the top of the hierarchy, which is seriously bad juju. I will be giving a talk on this very topic at [Xamarin Evolve 2016](https://evolve.xamarin.com/).
 
 ### The Layout Phase ###
 
 ![Layout Propagation](/img/invalidationdownphase.png){: .center-block}
 
-During the Layout phase, all parents of children which have received an invalidation event will relayout their children. This is quite expensive as it can easily impact parts of the tree which were logically nowhere near the original invalidation point. Propagating will stop if and only if the a child is layed out to the same size it was before the cycle began. This will exclude that part of the subtree from the rest of the layout cycle.
+During the Layout phase, all parents of children which have received an invalidation event will relayout their children. Invalidation is quite expensive as it can easily impact parts of the tree which were logically nowhere near the original invalidation point. Propagating will stop if and only if the a child is layed out to the same size it was before the cycle began. This will exclude that part of the subtree from the rest of the layout cycle.
 
 Unfortunately this is the most expensive possible place to have optimization taking place, it is significantly faster to prevent propagation in the first place.
 
 ### Caching Measurement Results ###
 
-The most important optimization we can perform is a cache of measurement results. This prevents us from having to remeasure every time [`OnSizeRequest`](https://developer.xamarin.com/api/member/Xamarin.Forms.VisualElement.OnSizeRequest/p/System.Double/System.Double/) is called. Building on our result from last time:
+The most important optimization to perform is the caching of measurement results. This prevents the layout from having to remeasure every time [`OnSizeRequest`](https://developer.xamarin.com/api/member/Xamarin.Forms.VisualElement.OnSizeRequest/p/System.Double/System.Double/) is called. Building on the result from last time:
 
 {% highlight C# %}
 readonly Dictionary<Size, SizeRequest> measureCache = new Dictionary<Size, SizeRequest> ();
@@ -98,4 +100,4 @@ Cached results prevent propagation of the measure portion of the layout phase (w
 
 Unfortunately when the original API for the layout system was designed some information that is useful for optimization was not passed into key methods. [`InvalidateMeasure`](https://developer.xamarin.com/api/member/Xamarin.Forms.VisualElement.InvalidateMeasure/) does not pass along the reason for the invalidation, and even more important [`OnChildMeasureInvalidated`](https://developer.xamarin.com/api/member/Xamarin.Forms.Layout.OnChildMeasureInvalidated()/) does not pass along which child was invalidated. This has been resolved in internal API's however exposing these publicly requires an API break. Therefor the intention is to fix this with 3.0.
 
-Next time we'll talk about animations inside of layouts.
+In part 3 we'll talk about animations inside of layouts.
