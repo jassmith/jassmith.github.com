@@ -5,7 +5,7 @@ author: Jason Smith
 subtitle: "Layout performance optimization"
 header-img: img/xamarin-platform.jpg
 category: Xamarin.Forms
-tags: [Layout Performance]
+tags: [Layout, Performance]
 ---
 {% include JB/setup %}
 

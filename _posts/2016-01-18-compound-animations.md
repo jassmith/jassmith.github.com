@@ -4,7 +4,7 @@ title: "Compound Animations"
 subtitle: "A bit beyond the basics"
 category: Animation
 author: Jason Smith
-tags: [animations]
+tags: [Animation]
 ---
 {% include JB/setup %}
 
