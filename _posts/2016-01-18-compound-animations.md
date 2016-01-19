@@ -29,7 +29,7 @@ button.Clicked += (sender, args) => {
 This produces the following animation.
 
 <div class="center">
-{% video /vid/rotate.mp4 300 500 %}
+<video class="center" width="300" height="500" preload="metadata" controls=""><source src="/vid/rotate.mp4" type="video/mp4; codecs=avc1.42E01E, mp4a.40.2&quot;" /></video>
 </div>
 
 The easing is what is providing the overshoot effect. This is nice, however if we want to add more complexity to the animation, we can do so by building a compound animation. Compound animations are constructed from multiple internal animations.
@@ -67,7 +67,7 @@ button.Clicked += (sender, args) => {
 Instead of creating a single animation, we create 4, an outer animation into which we pack 3 children. The first child, `rotation`, runs for the entire animation. `exitRight` runs for the first 50% of the animation as specified by the parameters 0, 0.5. The `enterLeft` animation runs for the final 50%. Unlike the rotation argument, here we always hardcoding the start value, so as the tweener ticks over from the previous animation to the next one, the button is getting warped from the right edge of the screen to the left. The final result looks like this!
 
 <div class="center">
-{% video /vid/compound-anim.mp4 300 500 %}
+<video class="center" width="300" height="500" preload="metadata" controls=""><source src="/vid/compound-anim.mp4" type="video/mp4; codecs=&quot;avc1.42E01E, mp4a.40.2&quot;" /></video>
 </div>
 
 Due to the way the rotation animation is coded, the button.Rotation value is increasing by 360 degrees every click. Worse if the button were double activated the button would become permanently stuck at an off angle as the value would be started from somewhere mid animation. For this reason it is generally advisable to have either the start or the end parameter be a hardcoded value. This prevents any screwy final states from occurring, like we do with the other animations.
