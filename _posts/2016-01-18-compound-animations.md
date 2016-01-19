@@ -3,7 +3,8 @@ layout: post
 title: "Compound Animations"
 subtitle: "A bit beyond the basics"
 category: Animation
-tags: []
+author: Jason Smith
+tags: [animations]
 ---
 {% include JB/setup %}
 
