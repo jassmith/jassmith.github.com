@@ -14,7 +14,7 @@ On top of this system are implemented some basic animations as extension methods
 
 ### Enter Xamarin.Forms.Animation ###
 
-The animation class provides the basis for all Xamarin.Forms animations, as well as the capacity to compound them together. It serves as both low level tweener and storyboard. A basic animation wont need to use storyboarding.
+The animation class provides the basis for all Xamarin.Forms animations, as well as the capacity to compound them together. It serves as both low level tweener and storyboard. A basic animation wont need to use storyboarding. (It is worth noting this animation can be done much more simply with RotateTo, this is here for demo purposes!)
 
 {% highlight C# %}
 button.Clicked += (sender, args) => {
