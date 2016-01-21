@@ -101,13 +101,13 @@ In effect then the Views inside the ControlTemplate are bound to values on the L
 
 ### Why go through all the trouble? ###
 
-There are several scenarios where this technique enables you to do things that were previously quite difficult. Mostly it comes down theming and making things beautiful. With ControlTemplates pages containing standardized content in your app can be easily themed and re-themed at runtime to have to different looks and feels while still presenting the exact same information. Just apply a different style with a different ControlTemplate and it looks brand new!
+There are several scenarios where this technique enables you to do things that were previously quite difficult. Mostly it comes down theming and making things beautiful. With ControlTemplates pages containing standardized content, your app can be easily themed and re-themed at runtime to have to different looks and feels while still presenting the exact same information. Just apply a different style with a different ControlTemplate and it looks brand new!
 
 It is also worth noting that while this example looked into TemplatedPage, TemplatedView/ContentView offer much more flexibility and composability because they are Views and not full size pages. This means it is much more likely to see them presenting similar/identical data but with different views.
 
 ### Why introduce TemplatedView/Page? ###
 
-TemplatedPage serves as a base class, replacing ContentPage is the most basic Page. Unlike ContentPage, TemplatedPage does not have a Content property. Therefor you cannot directly pack content into it. This means the only way to get content inside a TemplatedPage is to set the ControlTemplate, otherwise it will show up blank. The same is not true of a ContentPage, where the Content property can be assigned to as well as setting a ControlTemplate.
+TemplatedPage serves as a base class, replacing ContentPage as the most basic Page. Unlike ContentPage, TemplatedPage does not have a Content property. Therefor you cannot directly pack content into it. This means the only way to get content inside a TemplatedPage is to set the ControlTemplate, otherwise it will show up blank. The same is not true of a ContentPage, where the Content property can be assigned to as well as setting a ControlTemplate.
 
 Setting both is where things start to get really interesting. If the ControlTemplate were modified to look like:
 
