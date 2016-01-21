@@ -96,7 +96,7 @@ button.Effects.Add (Effect.Resolve ("YourCompany.ShadowEffect"));
 
 If you don't export an effect for a particular platform, Effect.Resolve will return a non-null value which does effectively nothing. This makes handling cross-platform fixes that are unique to individual platforms much easier, but comes with a tiny memory penalty.
 
-This is the point where we get off the boring train and get onto the hype train with a side of this-is-just-my-opinion soup. There is a much better way to do things with effects, which I hinted at above. You probably won't see this promoted in Xamarin docs because its a bit too classy or something.
+This is the point where we get off the boring train and get onto the hype train with a side of this-is-just-my-opinion soup. There is a much better way to do things with effects, which I hinted at above.
 
 ## All aboard the awesome train ##
 
