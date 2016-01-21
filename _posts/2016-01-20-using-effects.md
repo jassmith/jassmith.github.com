@@ -82,7 +82,7 @@ The ShadowEffect is created subclassing from PlatformEffect in the platform spec
 
 There are two important attributes to be set on any library containing an Effect.
 
-- `[assembly: FormsResolutionGroupName ("YourCompany")]` : This is used to set a company wide namespace for your effects and prevents collisions with other effects with the same name. You can use the same group name in multiple assemblies.
+- `[assembly: ResolutionGroupName ("YourCompany")]` : This is used to set a company wide namespace for your effects and prevents collisions with other effects with the same name. You can use the same group name in multiple assemblies.
 - `[assembly: ExportEffect (typeof (ShadowEffect), "ShadowEffect")]` : This exports the effect with a unique ID which we will use along with the group name to locate the effect.
 
 ## Simple usage ##
